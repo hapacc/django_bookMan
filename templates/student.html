@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content%}
+<div class="container">
+        <div class="col-xs-12 col-md-10">
+            <br><ol class ="breadcrumb">
+                <li><a href="/">首页</a></li>
+                <li><a href="/student">学生信息管理</a></li>
+            </ol>
+            <div class="panel panel-primary">
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>姓名</th>
+                            <th>专业</th>
+                            <th>借书上限</th>
+                            <th>借书号</th>
+                        </tr>
+                        <tr>
+                        {% for student in studentinfo %}
+                            <td>{{student.student_name}}</td>
+                            <td>{{student.student_major}}</td>
+                            <td>{{student.student_borrow_limit}}</td>
+                            <td>{{student.student_id}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            {% include "paginator.html"%}
+        </div>
+        
+{% endblock %}

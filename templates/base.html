@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>图书管理系统</title>
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-xs-12 col-md-12"></div>
+            <center><h2>图书管理系统</h2></center>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-xs-12 col-md-10">
+        <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="index">图书信息管理</a></li>
+        <li role="presentation" class="active"><a href="student">学生信息管理</a></li>
+        <li role="presentation" class="active"><a href="borrow">借阅信息管理</a></li>
+        </ul></div>
+    </div>
+        {% block content%} {% endblock %}
+        <div class="col-xs-11 col-md-2">
+            <div class="well">
+                {% if user.is_authenticated %}
+                <br />欢迎用户<span>&nbsp;{{ user.username }}&nbsp;</span><a href="/logout">登出</a><br />
+                <br/>上次登陆:<span>{{user.last_login}}</span><br />
+            {% endif %}    
+            </div>
+        </div>
+    </div>
+    
+</body>   
+</html>

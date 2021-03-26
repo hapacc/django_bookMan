@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content%}
+<div class="container">
+        <div class="col-xs-12 col-md-10">
+            <br><ol class ="breadcrumb">
+                <li><a href="/">首页</a></li>
+                <li><a href="/borrow">图书信息管理</a></li>
+            </ol>
+            <a href="/borrow-books" class="btn btn-primary">借书</a>
+            &nbsp;&nbsp;&nbsp;<a href="/back-books" class="btn btn-info">还书</a>
+            <div class="panel panel-primary">
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>借书号</th>
+                            <th>图书名称</th>
+                            <th>借书日期</th>
+                            <th>还书日期</th>
+                            <th>借书量</th>
+                            <th>超时时间</th>
+                            <th>罚金</th>
+                        </tr>
+                        <tr>
+                        {% for borrow in borrowinfo %}
+                            <td>{{borrow.student_id}}</td>
+                            <td>{{borrow.book_name}}</td>
+                            <td>{{borrow.borrow_date}}</td>
+                            <td>{{borrow.book_back}}</td>
+                            <td>{{borrow.borrow_sum}}</td>
+                            <td>{{borrow.borrow_overtime}}</td>
+                            <td>{{borrow.borrow_fine}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            {% include "paginator.html"%}
+        </div>
+{% endblock %}
