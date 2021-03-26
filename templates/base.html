@@ -24,13 +24,9 @@
         {% block content%} {% endblock %}
         <div class="col-xs-11 col-md-2">
             <div class="well">
-                {% if user.is_authenticated %}
                 <br />欢迎用户<span>&nbsp;{{ user.username }}&nbsp;</span><a href="/logout">登出</a><br />
-                <br/>上次登陆:<span>{{user.last_login}}</span><br />
-            {% endif %}    
             </div>
         </div>
     </div>
-    
 </body>   
 </html>
